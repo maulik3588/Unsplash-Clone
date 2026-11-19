@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advertise on Stumble | Reach Millions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #111;
+            background: #fff;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            height: 65px;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            text-decoration: none;
+            color: #111;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-right a {
+            color: #555;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .nav-right a:hover {
+            color: #111;
+        }
+
+        .btn-primary-sm {
+            background: #111;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .btn-primary-sm:hover {
+            background: #333;
+            color: #fff !important;
+        }
+
+        /* ============ HERO ============ */
+        .hero {
+            background: #0a0a0a;
+            color: #fff;
+            padding: 110px 5% 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 3px;
+            opacity: 0.18;
+            pointer-events: none;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 72px);
+            font-weight: 800;
+            letter-spacing: -3px;
+            line-height: 1.08;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: #d4a853;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.7;
+            max-width: 560px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-gold {
+            background: #d4a853;
+            color: #000;
+            padding: 15px 32px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-gold:hover {
+            background: #c9962f;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            color: #fff;
+            padding: 15px 32px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .btn-outline-white:hover {
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* ============ STATS BAND ============ */
+        .stats-band {
+            background: #f8f8f8;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 40px 5%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 800;
+            letter-spacing: -2px;
+            color: #111;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 4px;
+        }
+
+        /* ============ AD FORMATS ============ */
+        .section {
+            padding: 90px 5%;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #aaa;
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            max-width: 540px;
+            margin-bottom: 55px;
+        }
+
+        .formats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .format-card {
+            border: 1px solid #eee;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: box-shadow 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+
+        .format-card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .format-preview {
+            background: #f5f5f5;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .format-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+
+        .format-preview .format-label-overlay {
+            position: absolute;
+            bottom: 14px;
+            left: 14px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .format-info {
+            padding: 22px 24px;
+        }
+
+        .format-info h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .format-info p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .format-tag {
+            display: inline-block;
+            background: #f1f1f1;
+            color: #555;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 6px;
+            margin-bottom: 4px;
+        }
+
+        /* ============ BRANDS ============ */
+        .brands-section {
+            background: #f8f8f8;
+            padding: 70px 5%;
+            text-align: center;
+        }
+
+        .brands-label {
+            font-size: 12px;
+            color: #aaa;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            margin-bottom: 32px;
+        }
+
+        .brands-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 48px;
+        }
+
+        .brand-logo {
+            font-size: 18px;
+            font-weight: 800;
+            color: #bbb;
+            letter-spacing: -0.5px;
+            transition: color 0.2s;
+        }
+
+        .brand-logo:hover {
+            color: #111;
+        }
+
+        /* ============ HOW IT WORKS ============ */
+        .how-section {
+            padding: 90px 5%;
+            background: #fff;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-top: 55px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-num {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #111;
+            color: #fff;
+            font-weight: 800;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+        }
+
+        .step h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        /* ============ PRICING ============ */
+        .pricing-section {
+            padding: 90px 5%;
+            background: #f8f8f8;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 55px;
+        }
+
+        .pricing-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 14px;
+            padding: 36px 32px;
+            transition: box-shadow 0.3s;
+        }
+
+        .pricing-card:hover {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .pricing-card.featured {
+            border-color: #111;
+            position: relative;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -13px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #111;
+            color: #fff;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .pricing-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #888;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .pricing-price {
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 4px;
+        }
+
+        .pricing-price span {
+            font-size: 20px;
+            font-weight: 500;
+            color: #aaa;
+            vertical-align: super;
+        }
+
+        .pricing-desc {
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 28px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features li {
+            font-size: 14px;
+            color: #555;
+            padding: 8px 0;
+            border-bottom: 1px solid #f5f5f5;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: #27ae60;
+            font-weight: 700;
+        }
+
+        .btn-pricing {
+            width: 100%;
+            padding: 13px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.2s;
+        }
+
+        .btn-pricing.dark {
+            background: #111;
+            color: #fff;
+        }
+
+        .btn-pricing.dark:hover {
+            background: #333;
+        }
+
+        .btn-pricing.light {
+            background: #f5f5f5;
+            color: #111;
+        }
+
+        .btn-pricing.light:hover {
+            background: #eee;
+        }
+
+        /* ============ CONTACT FORM ============ */
+        .contact-section {
+            padding: 90px 5%;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-section .section-title {
+            text-align: center;
+        }
+
+        .contact-section .section-subtitle {
+            text-align: center;
+            margin: 0 auto 48px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .contact-field {
+            margin-bottom: 18px;
+        }
+
+        .contact-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .contact-field label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 7px;
+        }
+
+        .contact-field input,
+        .contact-field select,
+        .contact-field textarea {
+            width: 100%;
+            padding: 13px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            color: #111;
+            background: #fff;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .contact-field input:focus,
+        .contact-field select:focus,
+        .contact-field textarea:focus {
+            border-color: #111;
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-field textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-field select {
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background: #111;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.2s;
+            margin-top: 8px;
+        }
+
+        .btn-submit:hover {
+            background: #333;
+        }
+
+        .contact-note {
+            text-align: center;
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 16px;
+        }
+
+        .form-message {
+            display: none;
+            padding: 14px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            grid-column: 1 / -1;
+        }
+
+        .form-message.success {
+            background: #f0fff4;
+            color: #1a7f4b;
+            border: 1px solid #aef;
+        }
+
+        .form-message.error {
+            background: #fff0f0;
+            color: #c0392b;
+            border: 1px solid #fcc;
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #eee;
+            color: #bbb;
+            font-size: 13px;
+        }
+
+        footer a {
+            color: #aaa;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        footer a:hover {
+            color: #111;
+        }
+
+        footer .footer-logo {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: #111;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* TOAST */
+        #toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: #111;
+            color: #fff;
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1000px) {
+            .formats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .stats-band {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .formats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-field.full {
+                grid-column: 1;
+            }
+
+            .hero h1 {
+                letter-spacing: -1.5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <a class="logo" href="index.html">Stumble</a>
+        <nav class="nav-right">
+            <a href="index.html">Browse Photos</a>
+            <a href="login.html">Log in</a>
+            <a href="#contact" class="btn-primary-sm">Get in touch</a>
+        </nav>
+    </header>
+
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=300&auto=format" alt="Marketing team meeting">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&auto=format" alt="Digital marketing analytics">
+            <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=300&auto=format" alt="Brand advertising campaign">
+            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f2?w=300&auto=format" alt="Creative advertising studio">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=300&auto=format" alt="Business presentation">
+        </div>
+        <div class="hero-content">
+            <div class="hero-tag">FOR BRANDS & CREATORS</div>
+            <h1>Reach an audience that<br><span>actually creates.</span></h1>
+            <p>Put your brand in front of millions of designers, developers, marketers, and creatives who come here
+                every day for visual inspiration.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-gold">Start advertising →</a>
+                <a href="#formats" class="btn-outline-white">See ad formats</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============ STATS ============ -->
+    <div class="stats-band">
+        <div class="stat-item">
+            <h3>320M+</h3>
+            <p>Monthly visits</p>
+        </div>
+        <div class="stat-item">
+            <h3>5M+</h3>
+            <p>Photos available</p>
+        </div>
+        <div class="stat-item">
+            <h3>2.4M+</h3>
+            <p>Active contributors</p>
+        </div>
+        <div class="stat-item">
+            <h3>190+</h3>
+            <p>Countries reached</p>
+        </div>
+    </div>
+
+
+    <!-- ============ AD FORMATS ============ -->
+    <section class="section" id="formats">
+        <p class="section-label">AD FORMATS</p>
+        <h2 class="section-title">Beautiful placements,<br>native to the feed.</h2>
+        <p class="section-subtitle">Every ad format is designed to feel as natural as the photos around it — high impact
+            without breaking the experience.</p>
+
+        <div class="formats-grid">
+
+            <div class="format-card">
+                <div class="format-preview">
+                    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&auto=format&fit=crop"
+                        alt="">
+                    <span class="format-label-overlay">Sponsored</span>
+                </div>
+                <div class="format-info">
+                    <h3> Native Photo Ad</h3>
+                    <p>Your photo lives in the gallery feed, indistinguishable from organic content. Highest engagement
+                        of any format.</p>
+                    <span class="format-tag">Feed</span>
+                    <span class="format-tag">High CTR</span>
+                    <span class="format-tag">Mobile ready</span>
+                </div>
+            </div>
+
+            <div class="format-card">
+                <div class="format-preview">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&auto=format&fit=crop"
+                        alt="Brand takeover campaign">
+                    <span class="format-label-overlay">Brand Takeover</span>
+                </div>
+                <div class="format-info">
+                    <h3> Brand Takeover</h3>
+                    <p>Own an entire category page — your brand, your visuals, your story. Exclusive 24-hour placements
+                        available.</p>
+                    <span class="format-tag">Category page</span>
+                    <span class="format-tag">Premium</span>
+                    <span class="format-tag">Exclusive</span>
+                </div>
+            </div>
+
+            <div class="format-card">
+                <div class="format-preview">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&auto=format&fit=crop"
+                        alt="Hero banner placement">
+                    <span class="format-label-overlay">Hero Placement</span>
+                </div>
+                <div class="format-info">
+                    <h3>Hero Banner</h3>
+                    <p>Top-of-page placement on the homepage or category hero. Maximum visibility, guaranteed
+                        impressions.</p>
+                    <span class="format-tag">Homepage</span>
+                    <span class="format-tag">Guaranteed impressions</span>
+                </div>
+            </div>
+
+            <div class="format-card">
+                <div class="format-preview">
+                    <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=400&auto=format&fit=crop"
+                        alt="Branded photo collection">
+                    <span class="format-label-overlay">Collection</span>
+                </div>
+                <div class="format-info">
+                    <h3>Branded Collection</h3>
+                    <p>Curate a collection of photos that tell your brand story. Users can follow, share, and download.
+                    </p>
+                    <span class="format-tag">Collections</span>
+                    <span class="format-tag">Shareable</span>
+                    <span class="format-tag">Long-term</span>
+                </div>
+            </div>
+
+            <div class="format-card">
+                <div class="format-preview"
+                    style="background:#0a0a0a; color:#fff; font-size:16px; font-weight:700; letter-spacing:-0.5px; padding:30px; align-items:flex-start; flex-direction:column; gap:8px;">
+                    <span style="font-size:28px;">📧</span>
+                    <span>Weekly digest<br>newsletter</span>
+                    <span style="font-size:12px; opacity:0.5; font-weight:400;">Sponsored by YourBrand</span>
+                </div>
+                <div class="format-info">
+                    <h3> Newsletter Sponsorship</h3>
+                    <p>Be the exclusive sponsor of our weekly curator picks email, sent to 1.2M+ engaged subscribers.
+                    </p>
+                    <span class="format-tag">Email</span>
+                    <span class="format-tag">1.2M subscribers</span>
+                    <span class="format-tag">Weekly</span>
+                </div>
+            </div>
+
+            <div class="format-card">
+                <div class="format-preview"
+                    style="background: linear-gradient(135deg, #1a1a2e, #16213e); display:flex; flex-direction:column; align-items:center; gap:10px; color:#fff;">
+                    <span style="font-size:40px;">🎨</span>
+                    <span style="font-size:14px; font-weight:600;">Custom Campaign</span>
+                </div>
+                <div class="format-info">
+                    <h3> Custom Campaign</h3>
+                    <p>Work with our team to build something entirely unique — editorial features, contests, photo
+                        challenges, and more.</p>
+                    <span class="format-tag">Bespoke</span>
+                    <span class="format-tag">Full team</span>
+                    <span class="format-tag">Any scale</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ============ BRANDS ============ -->
+    <div class="brands-section">
+        <p class="brands-label">TRUSTED BY LEADING BRANDS</p>
+        <div class="brands-grid">
+            <span class="brand-logo">Adobe</span>
+            <span class="brand-logo">Squarespace</span>
+            <span class="brand-logo">Canva</span>
+            <span class="brand-logo">Figma</span>
+            <span class="brand-logo">Shopify</span>
+            <span class="brand-logo">Notion</span>
+            <span class="brand-logo">HubSpot</span>
+        </div>
+    </div>
+
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="how-section">
+        <p class="section-label">PROCESS</p>
+        <h2 class="section-title">From brief to live in days.</h2>
+
+        <div class="steps-grid">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h4>Tell us your goal</h4>
+                <p>Fill out the contact form with your budget, target audience, and campaign goals. No commitment
+                    required.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h4>We build your plan</h4>
+                <p>Our team designs a custom media plan with the best placements for your objectives and audience.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h4>You review & approve</h4>
+                <p>See exactly where your ads will appear, review creatives, and approve everything before launch.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <h4>Go live & grow</h4>
+                <p>Your campaign launches. Get real-time dashboards and a dedicated account manager to optimize results.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============ PRICING ============ -->
+    <section class="pricing-section">
+        <p class="section-label">PRICING</p>
+        <h2 class="section-title">Simple, transparent pricing.</h2>
+        <p class="section-subtitle">Every plan includes a dedicated account manager and real-time analytics.</p>
+
+        <div class="pricing-grid">
+
+            <div class="pricing-card">
+                <p class="pricing-name">STARTER</p>
+                <p class="pricing-price"><span>$</span>499</p>
+                <p class="pricing-desc">per month, billed monthly</p>
+                <ul class="pricing-features">
+                    <li>3 native photo ad placements</li>
+                    <li>Up to 50K guaranteed impressions</li>
+                    <li>Basic analytics dashboard</li>
+                    <li>Email support</li>
+                    <li>14-day campaign window</li>
+                </ul>
+                <button class="btn-pricing light" onclick="pickPlan('Starter')">Get started</button>
+            </div>
+
+            <div class="pricing-card featured">
+                <span class="featured-badge"> Most popular</span>
+                <p class="pricing-name">GROWTH</p>
+                <p class="pricing-price"><span>$</span>1,999</p>
+                <p class="pricing-desc">per month, billed monthly</p>
+                <ul class="pricing-features">
+                    <li>Unlimited native photo placements</li>
+                    <li>500K guaranteed impressions</li>
+                    <li>Hero banner on 1 category</li>
+                    <li>Real-time analytics + reporting</li>
+                    <li>Dedicated account manager</li>
+                    <li>A/B testing included</li>
+                </ul>
+                <button class="btn-pricing dark" onclick="pickPlan('Growth')">Choose Growth</button>
+            </div>
+
+            <div class="pricing-card">
+                <p class="pricing-name">ENTERPRISE</p>
+                <p class="pricing-price">Custom</p>
+                <p class="pricing-desc">tailored to your needs</p>
+                <ul class="pricing-features">
+                    <li>Everything in Growth</li>
+                    <li>Brand Takeover placements</li>
+                    <li>Newsletter sponsorship</li>
+                    <li>Custom campaign design</li>
+                    <li>Priority support & SLA</li>
+                    <li>Quarterly strategy reviews</li>
+                </ul>
+                <button class="btn-pricing light" onclick="pickPlan('Enterprise')">Talk to sales</button>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ============ CONTACT FORM ============ -->
+    <section class="contact-section" id="contact">
+        <p class="section-label" style="text-align:center;">GET STARTED</p>
+        <h2 class="section-title">Let's build something great.</h2>
+        <p class="section-subtitle">Fill out this form and our team will get back to you within 1 business day.</p>
+
+        <form id="contactForm" onsubmit="handleContact(event)">
+            <div class="contact-grid">
+
+                <div id="contactMessage" class="form-message"></div>
+
+                <div class="contact-field">
+                    <label for="cFirstName">First name *</label>
+                    <input type="text" id="cFirstName" placeholder="Alex" required>
+                </div>
+
+                <div class="contact-field">
+                    <label for="cLastName">Last name *</label>
+                    <input type="text" id="cLastName" placeholder="Doe" required>
+                </div>
+
+                <div class="contact-field">
+                    <label for="cEmail">Work email *</label>
+                    <input type="email" id="cEmail" placeholder="alex@company.com" required>
+                </div>
+
+                <div class="contact-field">
+                    <label for="cCompany">Company name *</label>
+                    <input type="text" id="cCompany" placeholder="Acme Inc." required>
+                </div>
+
+                <div class="contact-field full">
+                    <label for="cBudget">Monthly budget</label>
+                    <select id="cBudget">
+                        <option value="">Select a range...</option>
+                        <option value="under500">Under $500</option>
+                        <option value="500-2000">$500 – $2,000</option>
+                        <option value="2000-10000">$2,000 – $10,000</option>
+                        <option value="10000+">$10,000+</option>
+                        <option value="custom">Custom / Enterprise</option>
+                    </select>
+                </div>
+
+                <div class="contact-field full">
+                    <label for="cGoal">What's your advertising goal?</label>
+                    <select id="cGoal">
+                        <option value="">Select a goal...</option>
+                        <option value="brand">Brand awareness</option>
+                        <option value="traffic">Drive website traffic</option>
+                        <option value="leads">Generate leads</option>
+                        <option value="product">Promote a product</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="contact-field full">
+                    <label for="cMessage">Tell us more (optional)</label>
+                    <textarea id="cMessage"
+                        placeholder="Describe your campaign, target audience, timeline..."></textarea>
+                </div>
+
+            </div>
+            <button type="submit" class="btn-submit" id="contactSubmitBtn">Send my enquiry →</button>
+            <p class="contact-note"> We never share your information. No spam, ever.</p>
+        </form>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <a class="footer-logo" href="index.html">Stumble</a>
+        <div>
+            <a href="index.html">Browse</a>
+            <a href="advertise.html">Advertise</a>
+            <a href="login.html">Log in</a>
+            <a href="signup.html">Sign up</a>
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+        </div>
+        <p style="margin-top:16px;">&copy; 2026 Stumble. Created as a frontend project.</p>
+    </footer>
+
+    <div id="toast"></div>
+
+    <script>
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.style.opacity = '1';
+            t.style.transform = 'translateX(-50%) translateY(0)';
+            clearTimeout(t._timer);
+            t._timer = setTimeout(() => {
+                t.style.opacity = '0';
+                t.style.transform = 'translateX(-50%) translateY(20px)';
+            }, 3000);
+        }
+
+        function pickPlan(plan) {
+            // Pre-fill budget field and scroll to contact
+            if (plan === 'Starter') document.getElementById('cBudget').value = '500-2000';
+            if (plan === 'Growth') document.getElementById('cBudget').value = '2000-10000';
+            if (plan === 'Enterprise') document.getElementById('cBudget').value = 'custom';
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            showToast(` ${plan} plan selected! Fill in your details below.`);
+        }
+
+        function showContactMessage(text, type) {
+            const el = document.getElementById('contactMessage');
+            el.textContent = text;
+            el.className = 'form-message ' + type;
+            el.style.display = 'block';
+        }
+
+        function handleContact(e) {
+            e.preventDefault();
+            const btn = document.getElementById('contactSubmitBtn');
+            const firstName = document.getElementById('cFirstName').value.trim();
+            const lastName = document.getElementById('cLastName').value.trim();
+            const email = document.getElementById('cEmail').value.trim();
+            const company = document.getElementById('cCompany').value.trim();
+
+            if (!firstName || !lastName || !email || !company) {
+                showContactMessage(' Please fill in all required fields.', 'error');
+                return;
+            }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showContactMessage(' Please enter a valid email address.', 'error');
+                return;
+            }
+
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                showContactMessage(
+                    ` Thanks, ${firstName}! We've received your enquiry and will reach out to ${email} within 1 business day.`,
+                    'success'
+                );
+                btn.textContent = 'Enquiry sent ✓';
+                e.target.reset();
+
+                // Store lead in localStorage (demo only)
+                const leads = JSON.parse(localStorage.getItem('ad_leads') || '[]');
+                leads.push({ firstName, lastName, email, company, date: new Date().toISOString() });
+                localStorage.setItem('ad_leads', JSON.stringify(leads));
+            }, 1200);
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

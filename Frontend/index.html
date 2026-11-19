@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wallpapers | Unsplash Clone</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- STICKY HEADER CONTAINER -->
+
+    <div class="sticky-header">
+
+        <!-- NAVBAR -->
+
+        <header class="navbar">
+
+            <a class="logo" href="index.html">
+                <img src="Gemini_Generated_Image_iv5ozciv5ozciv5o.png" alt="Unsplash Clone Logo">
+            </a>
+
+            <div class="search-box">
+
+                <span>⌕</span>
+
+                <input type="text" placeholder="Search high-quality photos">
+
+            </div>
+
+            <nav class="nav-links">
+
+                <a href="index.html">Explore</a>
+                <a href="advertise.html">Advertise</a>
+                <a href="login.html">Log in</a>
+
+                <button class="signup" onclick="window.location.href='signup.html'">
+                    Sign up
+                </button>
+
+            </nav>
+
+        </header>
+
+
+        <!-- CATEGORY NAVIGATION -->
+
+        <nav class="categories">
+
+            <a href="#">Featured</a>
+            <a href="#">New Fall</a>
+            <a href="#" class="active">Wallpapers</a>
+            <a href="#">Nature</a>
+            <a href="#">3D Renders</a>
+            <a href="#">Experimental</a>
+            <a href="#">Film</a>
+            <a href="#">Street Photography</a>
+            <a href="#">Architecture</a>
+            <a href="#">Textures</a>
+            <a href="#">Travel</a>
+            <a href="#">People</a>
+
+        </nav>
+
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main>
+
+        <!-- HERO SECTION -->
+
+        <section class="hero">
+
+            <!-- 🖼️ SLIDESHOW BACKGROUND -->
+            <div class="hero-slideshow" id="heroSlideshow">
+                <div class="hero-slide" id="slide0"></div>
+                <div class="hero-slide" id="slide1"></div>
+                <div class="hero-slide" id="slide2"></div>
+                <div class="hero-slide" id="slide3"></div>
+                <div class="hero-slide" id="slide4"></div>
+            </div>
+            <!-- DARK OVERLAY so text stays readable -->
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+
+                <p class="tag">
+                    CURATED COLLECTION
+                </p>
+
+                <h1 id="heroTitle">Wallpapers</h1>
+
+                <p class="curated">
+                    Curated by Unsplash
+                </p>
+
+                <p class="description" id="heroDescription">
+
+                    From epic drone shots to inspiring moments
+                    in nature — enjoy the best background for
+                    your desktop or mobile.
+
+                </p>
+
+                <button class="submit-btn" id="heroSubmitBtn">
+                    Submit to Wallpapers
+                </button>
+
+            </div>
+
+            <!-- PHOTO CREDIT -->
+            <div class="hero-photo-credit" id="heroPhotoCredit">
+                Photo by <a id="heroCreditLink" href="#" target="_blank">Unsplash</a>
+            </div>
+
+        </section>
+
+
+        <!-- GALLERY SECTION -->
+
+        <section class="gallery-section">
+
+
+            <!-- GALLERY HEADING -->
+
+            <div class="gallery-heading">
+
+                <div>
+
+                    <h2>Discover Wallpapers</h2>
+
+                    <p>
+                        Explore beautiful images from creators worldwide.
+                    </p>
+
+                </div>
+
+                <button class="filter-btn">
+                    ☷ Filters
+                </button>
+
+            </div>
+
+
+            <!-- IMAGE GALLERY -->
+
+            <div class="gallery">
+
+                <!-- 🦴 NO MORE HARDCODED CAVE PAINTINGS -->
+                <!-- JavaScript will hunt fresh photos from Unsplash API -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>Unsplash Clone</h3>
+
+        <p>
+            Created as a frontend development project.
+        </p>
+
+    </footer>
+
+
+    <!-- 🦴 PHOTO DETAIL MODAL — THE BIG CAVE POPUP -->
+
+    <div class="modal-overlay" id="photoModal">
+
+        <div class="modal-content">
+
+            <!-- MODAL TOP BAR -->
+            <div class="modal-topbar">
+
+                <div class="modal-author">
+                    <img class="modal-avatar" id="modalAvatar" src="" alt="Author avatar">
+                    <div>
+                        <p class="modal-author-name" id="modalAuthorName"></p>
+                        <p class="modal-author-sub" id="modalAuthorSub">For Unsplash</p>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button class="modal-btn" id="modalBookmark" title="Bookmark">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </button>
+                    <button class="modal-btn" id="modalLike" title="Like">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="modal-download-btn" id="modalDownloadBtn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download
+                    </button>
+                    <button class="modal-close" id="modalClose">&times;</button>
+                </div>
+
+            </div>
+
+            <!-- MODAL IMAGE -->
+            <div class="modal-image-wrapper">
+                <img class="modal-image" id="modalImage" src="" alt="">
+            </div>
+
+            <!-- MODAL DETAILS SECTION -->
+            <div class="modal-details">
+
+                <div class="modal-details-left">
+
+                    <div class="modal-featured">
+                        <p class="modal-featured-label">Featured in</p>
+                        <p class="modal-featured-value" id="modalFeatured">Wallpapers</p>
+                    </div>
+
+                    <div class="modal-meta">
+                        <p id="modalDate">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            <span></span>
+                        </p>
+                        <p id="modalCamera">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+                                </path>
+                                <circle cx="12" cy="13" r="4"></circle>
+                            </svg>
+                            <span></span>
+                        </p>
+                        <p id="modalLicense">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                            <span>Licensed under the Unsplash+ License</span>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="modal-details-right">
+                    <button class="modal-share-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="18" cy="5" r="3"></circle>
+                            <circle cx="6" cy="12" r="3"></circle>
+                            <circle cx="18" cy="19" r="3"></circle>
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                        </svg>
+                        Share
+                    </button>
+                    <button class="modal-more-btn">•••</button>
+                </div>
+
+            </div>
+
+            <!-- TAGS -->
+            <div class="modal-tags" id="modalTags">
+                <!-- Tags filled by JS -->
+            </div>
+
+            <!-- RELATED IMAGES -->
+            <div class="modal-related">
+                <h3>Related Images</h3>
+                <div class="modal-related-grid" id="modalRelated">
+                    <!-- Related photos filled by JS -->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in | Stumble</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #111;
+            background: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            height: 65px;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            text-decoration: none;
+            color: #111;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .nav-right a {
+            color: #555;
+            text-decoration: none;
+        }
+
+        .nav-right a:hover {
+            color: #111;
+        }
+
+        .nav-right .btn-signup {
+            background: #111;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .nav-right .btn-signup:hover {
+            background: #444;
+        }
+
+        /* MAIN SPLIT LAYOUT */
+        .page-wrap {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: calc(100vh - 65px);
+        }
+
+        /* LEFT — big photo panel */
+        .photo-panel {
+            position: relative;
+            background: #111;
+            overflow: hidden;
+        }
+
+        .photo-panel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            display: block;
+        }
+
+        .photo-credit {
+            position: absolute;
+            bottom: 28px;
+            left: 28px;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 12px;
+        }
+
+        .photo-credit strong {
+            color: #fff;
+        }
+
+        .panel-quote {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+            width: 85%;
+        }
+
+        .panel-quote h2 {
+            font-size: clamp(26px, 3.5vw, 42px);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .panel-quote p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        /* RIGHT — form panel */
+        .form-panel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 40px;
+        }
+
+        .form-box {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .form-box h1 {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+
+        .form-box .subtitle {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 36px;
+        }
+
+        .form-box .subtitle a {
+            color: #111;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .form-box .subtitle a:hover {
+            text-decoration: underline;
+        }
+
+        /* SOCIAL BUTTONS */
+        .social-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            background: #fff;
+            transition: border-color 0.2s, background 0.2s;
+            margin-bottom: 12px;
+        }
+
+        .social-btn:hover {
+            border-color: #111;
+            background: #fafafa;
+        }
+
+        .social-btn svg {
+            flex-shrink: 0;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 24px 0;
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #eee;
+        }
+
+        /* FORM FIELDS */
+        .field {
+            margin-bottom: 18px;
+        }
+
+        .field label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 7px;
+            color: #333;
+        }
+
+        .field input {
+            width: 100%;
+            padding: 13px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            color: #111;
+        }
+
+        .field input:focus {
+            border-color: #111;
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+        }
+
+        .field input::placeholder {
+            color: #bbb;
+        }
+
+        .field-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 7px;
+        }
+
+        .field-row label {
+            margin-bottom: 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .forgot-link {
+            font-size: 12px;
+            color: #555;
+            text-decoration: none;
+        }
+
+        .forgot-link:hover {
+            color: #111;
+            text-decoration: underline;
+        }
+
+        .remember-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .remember-row input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: #111;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 14px;
+            background: #111;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+        }
+
+        .btn-primary:active {
+            background: #000;
+        }
+
+        /* ERROR / SUCCESS MESSAGES */
+        .form-message {
+            display: none;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .form-message.error {
+            background: #fff0f0;
+            color: #c0392b;
+            border: 1px solid #fcc;
+        }
+
+        .form-message.success {
+            background: #f0fff4;
+            color: #1a7f4b;
+            border: 1px solid #aef;
+        }
+
+        /* FOOTER */
+        .page-footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #bbb;
+            border-top: 1px solid #f5f5f5;
+        }
+
+        .page-footer a {
+            color: #999;
+            text-decoration: none;
+        }
+
+        .page-footer a:hover {
+            color: #111;
+        }
+
+        /* TOAST */
+        #toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: #111;
+            color: #fff;
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+            .page-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-panel {
+                display: none;
+            }
+
+            .form-panel {
+                padding: 40px 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <a class="logo" href="index.html">Stumble</a>
+        <div class="nav-right">
+            <span>Don't have an account?</span>
+            <a href="signup.html" class="btn-signup">Join free</a>
+        </div>
+    </header>
+
+    <!-- SPLIT LAYOUT -->
+    <div class="page-wrap">
+
+        <!-- LEFT: PHOTO -->
+        <div class="photo-panel">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&auto=format&fit=crop"
+                alt="Beautiful landscape" onerror="this.style.display='none'">
+            <div class="panel-quote">
+                <h2>The internet's source for visuals.</h2>
+                <p>Powered by creators everywhere.</p>
+            </div>
+            <p class="photo-credit">Photo by <strong>Samuel Ferrara</strong> on Unsplash</p>
+        </div>
+
+        <!-- RIGHT: FORM -->
+        <div class="form-panel">
+            <div class="form-box">
+
+                <h1>Welcome back</h1>
+                <p class="subtitle">New here? <a href="signup.html">Join for free →</a></p>
+
+                <!-- SOCIAL LOGIN -->
+                <button class="social-btn" onclick="socialLogin('Google')">
+                    <svg width="18" height="18" viewBox="0 0 24 24">
+                        <path fill="#4285F4"
+                            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                        <path fill="#34A853"
+                            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                        <path fill="#FBBC05"
+                            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" />
+                        <path fill="#EA4335"
+                            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                    </svg>
+                    Continue with Google
+                </button>
+
+                <button class="social-btn" onclick="socialLogin('Apple')">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#111">
+                        <path
+                            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                    </svg>
+                    Continue with Apple
+                </button>
+
+                <div class="divider">or log in with email</div>
+
+                <!-- EMAIL FORM -->
+                <div id="formMessage" class="form-message"></div>
+
+                <form id="loginForm" onsubmit="handleLogin(event)">
+
+                    <div class="field">
+                        <label for="email">Email address</label>
+                        <input type="email" id="email" placeholder="you@example.com" required autocomplete="email">
+                    </div>
+
+                    <div class="field">
+                        <div class="field-row">
+                            <label for="password">Password</label>
+                            <a href="#" class="forgot-link" onclick="forgotPassword(event)">Forgot password?</a>
+                        </div>
+                        <input type="password" id="password" placeholder="••••••••" required
+                            autocomplete="current-password">
+                    </div>
+
+                    <div class="remember-row">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me for 30 days</label>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Log in</button>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+        <a href="#">Terms</a> · <a href="#">Privacy</a> · <a href="#">Help Center</a>
+        &nbsp;— &copy; 2026 Stumble
+    </footer>
+
+    <div id="toast"></div>
+
+    <script>
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.style.opacity = '1';
+            t.style.transform = 'translateX(-50%) translateY(0)';
+            clearTimeout(t._timer);
+            t._timer = setTimeout(() => {
+                t.style.opacity = '0';
+                t.style.transform = 'translateX(-50%) translateY(20px)';
+            }, 2800);
+        }
+
+        function showMessage(text, type) {
+            const el = document.getElementById('formMessage');
+            el.textContent = text;
+            el.className = 'form-message ' + type;
+            el.style.display = 'block';
+        }
+
+        function socialLogin(provider) {
+            showToast(` ${provider} login coming soon! Caveman still building...`);
+        }
+
+        function forgotPassword(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            if (email) {
+                showToast(` Password reset sent to ${email}!`);
+            } else {
+                showToast('Enter your email first, then click Forgot password');
+            }
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const btn = e.target.querySelector('.btn-primary');
+
+            // Basic validation
+            if (!email || !password) {
+                showMessage('Please fill in all fields.', 'error');
+                return;
+            }
+            if (password.length < 6) {
+                showMessage('Password must be at least 6 characters.', 'error');
+                return;
+            }
+
+            // Simulate login (in real app, hit backend)
+            btn.textContent = 'Logging in...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                // Check if signed up (from localStorage)
+                const users = JSON.parse(localStorage.getItem('cave_users') || '[]');
+                const user = users.find(u => u.email === email && u.password === password);
+
+                if (user) {
+                    localStorage.setItem('cave_session', JSON.stringify({ name: user.name, email: user.email }));
+                    showMessage(` Welcome back, ${user.name}! Redirecting...`, 'success');
+                    setTimeout(() => { window.location.href = 'index.html'; }, 1200);
+                } else {
+                    showMessage(' Invalid email or password. Try signing up first!', 'error');
+                    btn.textContent = 'Log in';
+                    btn.disabled = false;
+                }
+            }, 900);
+        }
+
+        // If already logged in, redirect
+        const session = localStorage.getItem('cave_session');
+        if (session) {
+            const user = JSON.parse(session);
+            document.querySelector('.form-box h1').textContent = `Welcome back, ${user.name.split(' ')[0]}!`;
+        }
+    </script>
+
+</body>
+
+</html>
